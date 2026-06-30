@@ -1,0 +1,20 @@
+from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy import Column, Integer, String
+from aiogram.fsm.state import StatesGroup, State
+
+class Base(DeclarativeBase):
+    pass
+
+class User(Base):
+    __tablename__ = "users"
+    id = Column(
+        Integer,
+        primary_key=True
+    )
+    name = Column(String)
+    age = Column(Integer)
+    
+class Form(StatesGroup):
+    name = State()
+    age = State()
+    course = State()
